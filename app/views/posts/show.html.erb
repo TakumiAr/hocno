@@ -1,6 +1,6 @@
 <p>画像　<%= image_tag @post.image.url %></p>
 <p>タイトル <%= @post.title %></p>
-<p>カテゴリー</p>
+<p>カテゴリー <%= @post.category.name %></p>
 <p>内容<%= @post.content %></p>
 <p>値段 <%= @post.price %></p>
 <p>予算 <%= @post.budget %></p>

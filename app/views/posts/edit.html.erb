@@ -11,6 +11,7 @@
   </div>
   <div>
     <%= f.label :category %>
+    <%= f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] }), prompt: "Select Category" %>
   </div>
   <div>
     <%= f.label :content %>
