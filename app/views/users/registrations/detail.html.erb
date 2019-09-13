@@ -1,6 +1,9 @@
 <h1>ユーザー情報</h1>
+
+<%= image_tag @user.image.url %>
 <%= @user.name %>
 
 <% @user.posts.each do |post| %>
+  <%= image_tag post.image.url %>
   <%= post.title %>
 <% end %>
