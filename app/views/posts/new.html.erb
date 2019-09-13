@@ -2,6 +2,8 @@
 <%= form_with(model: @post, local: true) do |f| %>
   <div>
     <%= f.label :image %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
   </div>
   <div>
     <%= f.label :title %>
