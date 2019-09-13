@@ -1,0 +1,36 @@
+<h1>欲しい物の情報を編集</h1>
+<%= form_with(model: @post, local: true) do |f| %>
+  <div>
+    <%= f.label :image %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :category %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+  <div>
+    <%= f.label :budget %>
+    <%= f.number_field :budget %>
+  </div>
+  <div>
+    <span>status</span><br>
+      <%= f.radio_button :status, :迷い中, checked: "checked" %>
+      <%= f.label :迷い中 %>
+      <%= f.radio_button :status, :購入 %>
+      <%= f.label :購入 %>
+      <%= f.radio_button :status, :断念 %>
+      <%= f.label :断念 %>
+  </div>
+  <%= f.submit %>
+  <%= link_to 'back', :back %>
+<% end %>
