@@ -1,0 +1,27 @@
+<h1>欲しい物の情報を入力</h1>
+<%= form_with(model: @post, local: true) do |f| %>
+  <div>
+    <%= f.label :image %>
+  </div>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <div>
+    <%= f.label :category %>
+  </div>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content %>
+  </div>
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price %>
+  </div>
+  <div>
+    <%= f.label :budget %>
+    <%= f.number_field :budget %>
+  </div>
+  <%= f.submit %>
+  <%= link_to 'back', :back %>
+<% end %>
