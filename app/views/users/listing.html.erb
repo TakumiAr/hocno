@@ -1,22 +1,9 @@
-<ul>
-  <%= link_to 'listing', listing_users_path %>
-  <%= link_to 'like', like_users_path %>
-  <%= link_to 'notification', notification_users_path %>
-  <%= link_to 'thinking', thinking_users_path %>
-  <%= link_to 'purchase', purchase_users_path %>
-  <%= link_to 'abandonment', abandonment_users_path %>
-  <%= link_to 'profile', user_path(@user) %>
-</ul>
-
 <% @user.posts.each do |post| %>
   <%= link_to post do %>
     <div>
-      <p>画像 <%= image_tag post.image.url %></p>
+      <p><%= image_tag post.image.url %></p>
       <p>タイトル <%= post.title %></p>
       <p>カテゴリー <%= post.category.name %></p>
-      <p>内容 <%= post.content %></p>
-      <p>値段 <%= post.price %></p>
-      <p>予算 <%= post.budget %></p>
       <p><%= post.status %></p>
     </div>
   <% end %>

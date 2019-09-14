@@ -1,9 +1,10 @@
-<p>画像　<%= image_tag @post.image.url %></p>
+<p><%= image_tag @post.image.url %></p>
 <p>タイトル <%= @post.title %></p>
+<p>投稿者 <%= link_to @post.user.name, user_path(@post.user.id) %></p>
 <p>カテゴリー <%= @post.category.name %></p>
-<p>内容<%= @post.content %></p>
 <p>値段 <%= @post.price %></p>
 <p>予算 <%= @post.budget %></p>
+<p>内容<%= @post.content %></p>
 <p><%= @post.status %></p>
 
 <%= link_to 'edit', edit_post_path(@post) %>

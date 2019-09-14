@@ -19,6 +19,7 @@ Rails.application.routes.draw do
       get 'purchase'
       get 'notification'
       get 'abandonment'
+      get 'close_account'
     end
   end
   root 'posts#index'

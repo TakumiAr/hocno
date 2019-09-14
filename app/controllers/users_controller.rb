@@ -27,4 +27,13 @@ class UsersController < ApplicationController
   def abandonment
     @user = current_user
   end
+
+  def close_account
+  end
+
+  def destroy
+    @user = current_user
+    @user.destroy
+    redirect_to posts_path
+  end
 end
