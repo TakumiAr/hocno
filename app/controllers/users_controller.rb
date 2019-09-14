@@ -28,9 +28,6 @@ class UsersController < ApplicationController
     @user = current_user
   end
 
-  def close_account
-  end
-
   def destroy
     @user = current_user
     @user.destroy

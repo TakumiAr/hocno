@@ -22,5 +22,6 @@ Rails.application.routes.draw do
       get 'close_account'
     end
   end
+  resources :likes, only: [:create, :destroy]
   root 'posts#index'
 end

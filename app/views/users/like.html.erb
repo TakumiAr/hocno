@@ -1,0 +1,11 @@
+<% @user.like_posts.each do |post| %>
+  <%= link_to post do %>
+    <div>
+      <p><%= image_tag post.image.url %></p>
+      <p>タイトル <%= post.title %></p>
+      <p>投稿者 <%= post.user.name %></p>
+      <p>カテゴリー <%= post.category.name %></p>
+      <p><%= post.status %></p>
+    </div>
+  <% end %>
+<% end %>
