@@ -2,6 +2,7 @@
 <p>タイトル <%= @post.title %></p>
 <p>投稿者 <%= link_to @post.user.name, user_path(@post.user.id) %></p>
 <p>カテゴリー <%= @post.category.name %></p>
+<p>いいね <%= post.like_users.count %></p>
 <p>値段 <%= @post.price %></p>
 <p>予算 <%= @post.budget %></p>
 <% unless @post.user_id == current_user.id %>

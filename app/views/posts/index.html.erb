@@ -5,9 +5,8 @@
       <p><%= image_tag post.image.url %></p>
       <p>タイトル <%= post.title %></p>
       <p>カテゴリー <%= post.category.name %></p>
+      <p>いいね <%= post.like_users.count %></p>
       <p><%= post.status %></p>
     </div>
   <% end %>
 <% end %>
-
-<%= link_to "new", new_post_path %>

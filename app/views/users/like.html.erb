@@ -5,6 +5,7 @@
       <p>タイトル <%= post.title %></p>
       <p>投稿者 <%= post.user.name %></p>
       <p>カテゴリー <%= post.category.name %></p>
+      <p>いいね <%= post.like_users.count %></p>
       <p><%= post.status %></p>
     </div>
   <% end %>
