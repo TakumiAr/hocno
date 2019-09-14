@@ -7,6 +7,8 @@ class PostsController < ApplicationController
 
   def show
     @like = current_user.likes.find_by(post_id: @post.id)
+    @comment = Comment.new
+    @comments = @post.comments
   end
 
   def new

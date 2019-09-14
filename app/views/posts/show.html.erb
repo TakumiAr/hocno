@@ -2,7 +2,7 @@
 <p>タイトル <%= @post.title %></p>
 <p>投稿者 <%= link_to @post.user.name, user_path(@post.user.id) %></p>
 <p>カテゴリー <%= @post.category.name %></p>
-<p>いいね <%= post.like_users.count %></p>
+<p>いいね <%= @post.like_users.count %></p>
 <p>値段 <%= @post.price %></p>
 <p>予算 <%= @post.budget %></p>
 <% unless @post.user_id == current_user.id %>
@@ -15,5 +15,26 @@
 <p>内容<%= @post.content %></p>
 <p><%= @post.status %></p>
 
-<%= link_to 'edit', edit_post_path(@post) %>
-<%= link_to 'delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<% @comments.each do |comment| %>
+  <% unless comment.id.nil? %>
+    <p><%= link_to comment.user.name, user_path(comment.user.id) %></p>
+    <p><%= comment.content %></p>
+    <% if comment.user == current_user || @post.user == current_user %>
+      <p><%= link_to '削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %></p>
+    <% end %>
+  <% end %>
+<% end %>
+
+<%= form_with(model: [@post, @comment] ) do |form| %>
+  <div>
+    <%= form.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= form.submit "コメントをする" %>
+  </div>
+<% end %>
+
+<% if @post.user == current_user %>
+  <%= link_to 'edit', edit_post_path(@post) %>
+  <%= link_to 'delete', post_path(@post), method: :delete, data: { confirm: "Are you sure?" } %>
+<% end %>

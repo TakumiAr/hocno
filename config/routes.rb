@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     get "logout", :to => "users/sessions#destroy"
   end
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
   resources :users do
     collection do
       get 'listing'
