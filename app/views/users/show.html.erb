@@ -13,6 +13,7 @@
         <p><%= image_tag post.image.url %></p>
         <p>タイトル <%= post.title %></p>
         <p>カテゴリー <%= post.category.name %></p>
+        <p>コメント <%= post.comments.count %></p>
         <p>いいね <%= post.like_users.count %></p>
         <p><%= post.status %></p>
       </div>
