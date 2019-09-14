@@ -1,12 +1,14 @@
 <ul>
   <%= link_to 'listing', listing_users_path %>
   <%= link_to 'like', like_users_path %>
+  <%= link_to 'notification', notification_users_path %>
   <%= link_to 'thinking', thinking_users_path %>
   <%= link_to 'purchase', purchase_users_path %>
-  <%= link_to 'notification', notification_users_path %>
   <%= link_to 'abandonment', abandonment_users_path %>
   <%= link_to 'profile', user_path(@user) %>
 </ul>
 
 <%= image_tag @user.image.url %>
 <p>name: <%= @user.name %></p>
+
+<%= link_to 'edit', edit_user_registration_path %>

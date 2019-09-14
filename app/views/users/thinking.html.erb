@@ -8,7 +8,7 @@
   <%= link_to 'profile', user_path(@user) %>
 </ul>
 
-<% @user.posts.each do |post| %>
+<% @user.posts.where(status: 0).each do |post| %>
   <%= link_to post do %>
     <div>
       <p>画像 <%= image_tag post.image.url %></p>
@@ -21,3 +21,4 @@
     </div>
   <% end %>
 <% end %>
+
