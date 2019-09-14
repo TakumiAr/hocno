@@ -10,5 +10,24 @@
 
 <%= image_tag @user.image.url %>
 <p>name: <%= @user.name %></p>
+<p>悩み中: <%= @user.posts.where(status: 0).count %></p>
+<p>購入: <%= @user.posts.where(status: 1).count %></p>
+<p>断念: <%= @user.posts.where(status: 2).count %></p>
 
-<%= link_to 'edit', edit_user_registration_path %>
+<% if @user.id == current_user.id %>
+  <%= link_to 'edit', edit_user_registration_path %>
+<% else %>
+  <% @user.posts.each do |post| %>
+    <%= link_to post do %>
+      <div>
+        <p>画像 <%= image_tag post.image.url %></p>
+        <p>タイトル <%= post.title %></p>
+        <p>カテゴリー <%= post.category.name %></p>
+        <p>内容 <%= post.content %></p>
+        <p>値段 <%= post.price %></p>
+        <p>予算 <%= post.budget %></p>
+        <p><%= post.status %></p>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
