@@ -1,64 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Hocno</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Hocno</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-  <nav>
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <%= link_to "Hocno", posts_path, class: "nav-link active" %>
-      </li>
-      <% if user_signed_in? %>
-        <li class="nav-item">
-          <%= link_to "new", new_post_path, class: "nav-link" %>
-        </li>
-        <nav>
-          <div class="btn-group">
-            <button class="btn dropdown-toggle" type="button" id="buttonMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </button>
-            <div class="dropdown-menu" aria-labelledby="buttonMenu1">
-              <%= link_to 'listing', listing_users_path, class: "dropdown-item" %>
-              <%= link_to 'like', like_users_path, class: "dropdown-item" %>
-              <%= link_to 'notification', notification_users_path, class: "dropdown-item" %>
-              <%= link_to 'thinking', thinking_users_path, class: "dropdown-item" %>
-              <%= link_to 'purchase', purchase_users_path, class: "dropdown-item" %>
-              <%= link_to 'abandonment', abandonment_users_path, class: "dropdown-item" %>
-              <%= link_to 'profile', user_path(current_user), class: "dropdown-item" %>
-              <%= link_to "sign out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-              <%= link_to "close_account",  close_account_users_path, class: "dropdown-item" %>
-            </div>
-          </div>
-          <ul>
-            <%= link_to 'カテゴリー' %>
-            <%= link_to '検索フォーム' %>
-            <%= link_to 'like', like_users_path %>
-            <%= link_to 'notification', notification_users_path %>
-            <%= link_to "( ^ω^ )", user_path(current_user) %>
-          </ul>
-        </nav>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Log In", new_user_session_path %>
-        </li>
-      <% end %>
-    </ul>
-  </nav>
-
-  <div>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-  </div>
-    <%= yield %>
-  </body>
+<body>
+<%= link_to "Hocno", posts_path %>
+<% if user_signed_in? %>
+  <%= link_to "new", new_post_path %>
+  <%= link_to 'listing', listing_users_path %>
+  <%= link_to 'like', like_users_path %>
+  <%= link_to 'notification', notification_users_path %>
+  <%= link_to 'thinking', thinking_users_path %>
+  <%= link_to 'purchase', purchase_users_path %>
+  <%= link_to 'abandonment', abandonment_users_path %>
+  <%= link_to 'profile', user_path(current_user) %>
+  <%= link_to "sign out", destroy_user_session_path, method: :delete %>
+  <%= link_to "close_account",  close_account_users_path %>
+  <%= link_to "admin", rails_admin_path if current_user.admin? %>
+  <ul>
+    <%= link_to 'カテゴリー' %>
+    <%= link_to '検索フォーム' %>
+    <%= link_to 'like', like_users_path %>
+    <%= link_to 'notification', notification_users_path %>
+    <%= link_to "( ^ω^ )", user_path(current_user) %>
+  </ul>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Log In", new_user_session_path %>
+<% end %>
+<div>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+</div>
+<%= yield %>
+</body>
 </html>
