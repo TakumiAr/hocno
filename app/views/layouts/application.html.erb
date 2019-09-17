@@ -24,7 +24,7 @@
   <%= link_to "close_account",  close_account_users_path %>
   <%= link_to "admin", rails_admin_path if current_user.admin? %>
   <ul>
-    <%= render 'search_form' %>
+    <%= render partial: 'posts/search_form' %>
     <%= link_to 'like', like_users_path %>
     <%= link_to 'notification', notification_users_path %>
     <%= link_to "( ^ω^ )", user_path(current_user) %>
