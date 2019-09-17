@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :posts do
     resources :comments
   end
+  get 'search', to: 'posts#search'
   resources :users do
     collection do
       get 'listing'

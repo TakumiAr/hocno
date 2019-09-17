@@ -24,8 +24,7 @@
   <%= link_to "close_account",  close_account_users_path %>
   <%= link_to "admin", rails_admin_path if current_user.admin? %>
   <ul>
-    <%= link_to 'カテゴリー' %>
-    <%= link_to '検索フォーム' %>
+    <%= render 'search_form' %>
     <%= link_to 'like', like_users_path %>
     <%= link_to 'notification', notification_users_path %>
     <%= link_to "( ^ω^ )", user_path(current_user) %>

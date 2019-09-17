@@ -1,0 +1,11 @@
+<%= search_form_for(@q, url:search_path) do |f| %>
+  <div>
+    <%= f.label :title_cont, 'title' %>
+    <%= f.search_field :title_cont %>
+  </div>
+  <div>
+    <%= f.label :category_id_eq, 'category' %>
+    <%= f.select :category_id_eq, options_for_select(Category.all.map{ |c| [c.name, c.id] }), include_blank: '指定なし' %>
+  </div>
+  <%= f.submit %>
+<% end %>

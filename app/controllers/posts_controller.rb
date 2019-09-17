@@ -2,7 +2,9 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true)
+    @categories = Category.all
   end
 
   def show
@@ -40,6 +42,11 @@ class PostsController < ApplicationController
     redirect_to posts_path
   end
 
+  def search
+    @q = Post.search(search_params)
+    @posts = @q.result(distinct: true)
+  end
+
   private
 
   def post_params
@@ -48,5 +55,9 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+  end
+
+  def search_params
+    params.require(:q).permit(:title_cont, :category_id_eq)
   end
 end
