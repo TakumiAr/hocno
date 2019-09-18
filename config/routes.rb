@@ -27,5 +27,6 @@ Rails.application.routes.draw do
     end
   end
   resources :likes, only: [:create, :destroy]
+  resources :notices, only: :index
   root 'posts#index'
 end

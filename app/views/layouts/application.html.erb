@@ -15,7 +15,7 @@
   <%= link_to "new", new_post_path %>
   <%= link_to 'listing', listing_users_path %>
   <%= link_to 'like', like_users_path %>
-  <%= link_to 'notification', notification_users_path %>
+  <%= link_to 'notification', notices_path %>
   <%= link_to 'thinking', thinking_users_path %>
   <%= link_to 'purchase', purchase_users_path %>
   <%= link_to 'abandonment', abandonment_users_path %>
@@ -26,7 +26,7 @@
   <ul>
     <%= render partial: 'posts/search_form' %>
     <%= link_to 'like', like_users_path %>
-    <%= link_to 'notification', notification_users_path %>
+    <%= link_to 'notification', notices_path %>
     <%= link_to "( ^ω^ )", user_path(current_user) %>
   </ul>
 <% else %>

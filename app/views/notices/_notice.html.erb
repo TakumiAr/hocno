@@ -1,0 +1,23 @@
+<% visitor = notice.visitor %>
+<% visited = notice.visited %>
+
+<%= link_to user_path(visitor) do %>
+  <%= image_tag visitor.image_url %>
+  <%= visitor.name %>さんが
+  <% case notice.action %>
+  <% when 'like' then %>
+    <%= link_to 'あなたの投稿', notice.post %>"にいいねしました"
+  <% when 'comment' then %>
+    <% if notice.post.user_id == visited.id %>
+      <%= link_to "あなたの投稿", notice.post %>
+    <% else %>
+      <%= link_to post_path(notice.post) do %>
+        <%= image_tag visitor.image_url %>
+        <%= notice.post.user.name + 'さんの投稿' %>
+      <% end %>
+      <%= "にコメントしました" %>
+      <p><%= Comment.find_by(id: notice.comment_id)&.content %></p>
+    <% end %>
+    <%= time_ago_in_words(notice.created_at).upcase %>
+  <% end %>
+<% end %>
