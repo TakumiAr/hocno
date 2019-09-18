@@ -1,6 +1,12 @@
 <% notices = @notices.where.not(visitor_id: current_user.id) %>
 <% if notices.exists? %>
-  <%= render notices %>
+  <div class="container">
+    <div class="row">
+      <div class="col s6">
+        <%= render notices %>
+      </div>
+    </div>
+  </div>
 <% else %>
   <p>通知はありません</p>
 <% end %>

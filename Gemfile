@@ -18,6 +18,9 @@ gem 'devise'
 gem 'rails_admin', '~> 2.0'
 gem 'cancancan'
 gem 'ransack'
+gem 'materialize-sass', '~> 1.0.0'
+gem 'material_icons'
+gem 'jquery-rails', '~> 4.3', '>= 4.3.5'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -1,13 +1,23 @@
 <h1>投稿一覧</h1>
-<% @posts.each do |post| %>
-  <%= link_to post do %>
-    <div>
-      <p><%= image_tag post.image.url %></p>
-      <p>タイトル <%= post.title %></p>
-      <p>カテゴリー <%= post.category.name %></p>
-      <p>コメント <%= post.comments.count %></p>
-      <p>いいね <%= post.like_users.count %></p>
-      <p><%= post.status %></p>
-    </div>
-  <% end %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col s12 m4 l4">
+        <%= link_to post do %>
+          <div class="card medium">
+            <div class="card-image">
+              <%= image_tag post.image.url %>
+              <span class="card-title"><%= post.status %></span>
+            </div>
+            <div class="card-title"><%= post.title %></div>
+            <div class="card-action">
+              <p>カテゴリー <%= post.category.name %></p>
+              <span>コメント <%= post.comments.count %></span>
+              <span>いいね <%= post.like_users.count %></span>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

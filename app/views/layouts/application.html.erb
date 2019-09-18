@@ -7,6 +7,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
@@ -23,8 +24,8 @@
   <%= link_to "sign out", destroy_user_session_path, method: :delete %>
   <%= link_to "close_account",  close_account_users_path %>
   <%= link_to "admin", rails_admin_path if current_user.admin? %>
+  <%= render partial: 'posts/search_form' %>
   <ul>
-    <%= render partial: 'posts/search_form' %>
     <%= link_to 'like', like_users_path %>
     <%= link_to 'notification', notices_path %>
     <%= link_to "( ^ω^ )", user_path(current_user) %>
