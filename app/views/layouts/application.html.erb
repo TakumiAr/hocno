@@ -18,10 +18,23 @@
       <%= link_to "Hocno", posts_path, class: "brand-logo" %>
       <ul class="right hide-on-med-and-down">
         <% if user_signed_in? %>
-          <li><%= link_to 'like', like_users_path %></li>
-          <li><%= link_to 'notification', notices_path %></li>
-          <li><%= link_to "new", new_post_path %></li>
-          <li><%= link_to "admin", rails_admin_path if current_user.admin? %></li>
+          <li>
+            <%= link_to like_users_path do %>
+              <i class="material-icons red-text">favorite_border</i>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to notices_path do %>
+              <i class="material-icons yellow-text">notifications</i>
+            <% end %>
+          </li>
+          <li>
+            <% if current_user.admin? %>
+              <%= link_to rails_admin_path do %>
+                <i class="material-icons grey-text">settings</i>
+              <% end %>
+            <% end %>
+          </li>
           <li data-target="slide-out" class="sidenav-trigger"><a><i
             class="material-icons
           nav-icon">account_circle</i></a></li>
