@@ -7,33 +7,65 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 </head>
 
 <body>
-<%= link_to "Hocno", posts_path %>
-<% if user_signed_in? %>
-  <%= link_to "new", new_post_path %>
-  <%= link_to 'listing', listing_users_path %>
-  <%= link_to 'like', like_users_path %>
-  <%= link_to 'notification', notices_path %>
-  <%= link_to 'thinking', thinking_users_path %>
-  <%= link_to 'purchase', purchase_users_path %>
-  <%= link_to 'abandonment', abandonment_users_path %>
-  <%= link_to 'profile', user_path(current_user) %>
-  <%= link_to "sign out", destroy_user_session_path, method: :delete %>
-  <%= link_to "close_account",  close_account_users_path %>
-  <%= link_to "admin", rails_admin_path if current_user.admin? %>
-  <%= render partial: 'posts/search_form' %>
-  <ul>
-    <%= link_to 'like', like_users_path %>
-    <%= link_to 'notification', notices_path %>
-    <%= link_to "( ^ω^ )", user_path(current_user) %>
-  </ul>
-<% else %>
-  <%= link_to "Sign Up", new_user_registration_path %>
-  <%= link_to "Log In", new_user_session_path %>
-<% end %>
+<nav class="blue darken-2">
+  <div class="container">
+    <div class="nav-wrapper">
+      <%= link_to "Hocno", posts_path, class: "brand-logo" %>
+      <ul class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+          <li><%= link_to 'like', like_users_path %></li>
+          <li><%= link_to 'notification', notices_path %></li>
+          <li><%= link_to "new", new_post_path %></li>
+          <li><%= link_to "admin", rails_admin_path if current_user.admin? %></li>
+        <% else %>
+          <li><%= link_to "sign Up", new_user_registration_path %></li>
+          <li><%= link_to "log In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+      <ul id="slide-out" class="sidenav">
+        <li><div class="user-view">
+          <div class="background">
+            <%= image_tag('side-background.jpg') %>
+          </div>
+          <%= image_tag current_user.image.url, class: "circle" %>
+          <a href="#name"><span class="white-text name">John Doe</span></a>
+          <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+        </div></li>
+        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+        <li><a href="#!">Second Link</a></li>
+        <li><div class="divider"></div></li>
+        <li><a class="subheader">Subheader</a></li>
+        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+      </ul>
+      <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    </div>
+  </div>
+</nav>
+
+
+
+
+<%#= link_to 'listing', listing_users_path %>
+<%#= link_to 'like', like_users_path %>
+<%#= link_to 'notification', notices_path %>
+<%#= link_to 'thinking', thinking_users_path %>
+<%#= link_to 'purchase', purchase_users_path %>
+<%#= link_to 'abandonment', abandonment_users_path %>
+<%#= link_to 'profile', user_path(current_user) %>
+<%#= link_to "sign out", destroy_user_session_path, method: :delete %>
+<%#= link_to "close_account",  close_account_users_path %>
+
+<%#= render partial: 'posts/search_form' %>
+<!--  <ul>-->
+
+<%#= link_to "( ^ω^ )", user_path(current_user) %>
+<!--  </ul>-->
+
 <div>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>

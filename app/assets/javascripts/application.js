@@ -19,8 +19,6 @@
 
 $(document).on('turbolinks:load', function() {
   $('.dropdown-trigger').dropdown();
-  $(document).ready(function(){
-    $('.sidenav').sidenav();
-    $('select').formSelect();
-  });
+  $('.sidenav').sidenav();
+  $('select').formSelect();
 });
