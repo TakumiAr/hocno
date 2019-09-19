@@ -1,5 +1,5 @@
-<h1>投稿一覧</h1>
 <div class="container">
+  <h3>投稿一覧</h3>
   <div class="row">
     <% @posts.each do |post| %>
       <div class="col s12 m4 l4">
@@ -19,10 +19,10 @@
               <%= image_tag post.image.url %>
             </div>
             <div class="card-title"><%= post.title %></div>
-            <div class="card-action">
-              <p>カテゴリー <%= post.category.name %></p>
-              <span>コメント <%= post.comments.count %></span>
-              <span>いいね <%= post.like_users.count %></span>
+            <div class="card-action card-info">
+              <span class="col m6 s12"><%= post.category.name %></span>
+              <span class="col m3 s6"><i class="material-icons">chat_bubble_outline</i><strong><%= post.comments.count %></strong></span>
+              <span class="col m3 s6"><i class="material-icons red-text">favorite</i> <%= post.like_users.count %></span>
             </div>
           </div>
         <% end %>
