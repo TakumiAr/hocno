@@ -5,9 +5,18 @@
       <div class="col s12 m4 l4">
         <%= link_to post do %>
           <div class="card medium">
+            <% if post.status == '迷い中' %>
+            <% elsif post.status == '購入' %>
+              <div class="status purchase">
+                <i class="medium material-icons">mood_good</i>
+              </div>
+            <% else %>
+              <div class="status abandonment">
+                <i class="medium material-icons">mood_bad</i>
+              </div>
+            <% end %>
             <div class="card-image">
               <%= image_tag post.image.url %>
-              <span class="card-title"><%= post.status unless post.status == '迷い中' %></span>
             </div>
             <div class="card-title"><%= post.title %></div>
             <div class="card-action">

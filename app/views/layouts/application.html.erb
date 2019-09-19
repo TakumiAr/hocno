@@ -69,29 +69,31 @@
           </li>
           <li>
             <%= link_to thinking_users_path do %>
-              <i class="material-icons">sentiment_dissatisfied</i><span>thinking</span>
+              <i class="material-icons green-text">sentiment_dissatisfied</i><span>thinking</span>
             <% end %>
           </li>
           <li>
             <%= link_to purchase_users_path do %>
-              <i class="material-icons">insert_emoticon</i><span>purchase</span>
+              <i class="material-icons red-text">mood_good</i><span>purchase</span>
             <% end %>
           </li>
           <li>
             <%= link_to abandonment_users_path do %>
-              <i class="material-icons">mood_bad</i><span>abandonment</span>
+              <i class="material-icons blue-text">mood_bad</i><span>abandonment</span>
             <% end %>
           </li>
           <li><div class="divider"></div></li>
           <li>
             <%= link_to destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？" } do %>
-              <i class="material-icons">power_settings_new</i><span>sign out</span>
+              <i class="material-icons blue-text">power_settings_new</i><span>sign out</span>
             <% end %>
           </li>
           <li>
             <%= link_to close_account_users_path do %>
               <i class="material-icons red-text">warning</i><span>close_account</span>
             <% end %>
+          </li>
+          <li>
           </li>
         </ul>
       <% end %>
