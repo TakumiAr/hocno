@@ -1,4 +1,4 @@
-<%= image_tag @user.image.url %>
+<%= image_tag @user.icon.url %>
 <p>name: <%= @user.name %></p>
 <p>悩み中: <%= @user.posts.where(status: 0).count %></p>
 <p>購入: <%= @user.posts.where(status: 1).count %></p>
