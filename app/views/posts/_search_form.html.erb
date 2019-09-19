@@ -1,13 +1,12 @@
-<div class="container">
-  <div class="row">
-    <%= search_form_for(@q, url:search_path) do |f| %>
-      <div class="col s8" style="display:inline-flex">
-        <%= f.label :title_cont, 'title' %>
-        <%= f.search_field :title_cont %>
-        <%= f.label :category_id_eq, 'category' %>
-        <%= f.select :category_id_eq, options_for_select(Category.all.map{ |c| [c.name, c.id] }), include_blank: '指定なし' %>
-        <%= f.submit "検索する", class: "btn-small btn white green-text" %>
-      </div>
-    <% end %>
+<%= search_form_for(@q, url:search_path) do |f| %>
+  <div class="col m4 s12">
+    <%= f.search_field :title_cont, placeholder: "単語で検索" %>
   </div>
-</div>
+  <div class="col m4 s12">
+    <%= f.select :category_id_eq, options_for_select(Category.all.map{ |c| [c.name, c.id] }), include_blank: 'カテゴリー' %>
+  </div>
+  <div class="col m4 s12 button">
+    <%= f.submit "検索する", class: "btn-small btn white green-text" %>
+  </div>
+<% end %>
+

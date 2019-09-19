@@ -7,7 +7,7 @@
           <div class="card medium">
             <div class="card-image">
               <%= image_tag post.image.url %>
-              <span class="card-title"><%= post.status %></span>
+              <span class="card-title"><%= post.status unless post.status == '迷い中' %></span>
             </div>
             <div class="card-title"><%= post.title %></div>
             <div class="card-action">
@@ -20,4 +20,9 @@
       </div>
     <% end %>
   </div>
+</div>
+<div class="fixed-action-btn">
+  <%= link_to new_post_path, class: "btn-floating btn-large red" do %>
+    <i class="large material-icons">mode_edit</i>
+  <% end %>
 </div>

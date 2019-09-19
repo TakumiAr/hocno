@@ -20,4 +20,5 @@ $(document).ready(function(){
   $('.dropdown-trigger').dropdown();
   $('.sidenav').sidenav();
   $('select').formSelect();
+  $('.modal').modal();
 });
