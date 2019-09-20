@@ -1,34 +1,32 @@
-<div class="container">
+<div class="row">
   <h3>投稿一覧</h3>
-  <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col s12 m4 l4">
-        <%= link_to post do %>
-          <div class="card medium">
-            <% if post.status == '迷い中' %>
-            <% elsif post.status == '購入' %>
-              <div class="status purchase">
-                <i class="medium material-icons">mood_good</i>
-              </div>
-            <% else %>
-              <div class="status abandonment">
-                <i class="medium material-icons">mood_bad</i>
-              </div>
-            <% end %>
-            <div class="card-image">
-              <%= image_tag post.image.url %>
+  <% @posts.each do |post| %>
+    <div class="col s12 m6 l4">
+      <%= link_to post do %>
+        <div class="card">
+          <% if post.status == '迷い中' %>
+          <% elsif post.status == '購入' %>
+            <div class="status purchase">
+              <i class="medium material-icons">mood_good</i>
             </div>
-            <div class="card-title"><%= post.title %></div>
-            <div class="card-action card-info">
-              <span class="col m6 s12"><%= post.category.name %></span>
-              <span class="col m3 s6"><i class="material-icons">chat_bubble_outline</i><strong><%= post.comments.count %></strong></span>
-              <span class="col m3 s6"><i class="material-icons red-text">favorite</i> <%= post.like_users.count %></span>
+          <% else %>
+            <div class="status abandonment">
+              <i class="medium material-icons">mood_bad</i>
             </div>
+          <% end %>
+          <div class="card-image">
+            <%= image_tag post.image.url %>
           </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+          <div class="card-title"><%= post.title %></div>
+          <div class="card-action card-info">
+            <span><%= post.category.name %></span>
+            <span><i class="material-icons">chat_bubble_outline</i><strong><%= post.comments.count %></strong></span>
+            <span><i class="material-icons red-text">favorite</i> <%= post.like_users.count %></span>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 </div>
 <div class="fixed-action-btn">
   <%= link_to new_post_path, class: "btn-floating btn-large red" do %>

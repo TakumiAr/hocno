@@ -26,12 +26,29 @@
 .abandonment {
   color: blue;
 }
-
+.card .card-action {
+  padding-bottom: 30px;
+}
 .card-info {
-  font-size: 12px;
+  font-size: 16px;
+  padding: 0;
   color: #2E2F30;
+  display: flex;
+  justify-content: space-between;
 }
 
+.card .card-title {
+  height: 80px;
+}
+
+.card-image img{
+  width: auto;
+  height: 250px;
+}
+
+.card-title {
+  height: 50px;
+}
 #img_field {
   font-size: 15px;
   margin-top: 10px;
@@ -79,4 +96,10 @@
   transition: 0.3s ease-out;
   display: block;
   color: #fff;
+}
+
+//post-show
+
+.show-title {
+  text-align: center;
 }

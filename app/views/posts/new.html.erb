@@ -5,7 +5,7 @@
   <div id="img_field" onClick="$('#file').click()" >
 
     <% if @post.image.url.present? %>
-      <%= image_tag(@post.image.url) %>
+      <%= image_tag @post.image.thumb.url %>
     <% else %>
       <i class="material-icons">image</i>
       <i class="material-icons add">add</i>
