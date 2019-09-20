@@ -60,7 +60,7 @@
             <p><%= comment.content %></p>
             <p><%= time_ago_in_words(comment.created_at) %> ago</p>
             <% if comment.user == current_user || @post.user == current_user %>
-              <p><%= link_to '削除する', post_comment_path(comment.post_id, comment.id), method: :delete, remote: true %></p>
+              <p><%= link_to '削除する', post_comment_path(comment.post_id, comment.id), method: :delete %></p>
             <% end %>
           <% end %>
         <% end %>
@@ -68,7 +68,7 @@
     </div>
   </div>
   <div class="col m6 offset-m3 s12">
-    <%= form_with(model: [@post, @comment] ) do |form| %>
+    <%= form_with(model: [@post, @comment], local: true ) do |form| %>
       <div>
         <%= form.text_area :content %>
       </div>
