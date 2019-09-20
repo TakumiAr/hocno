@@ -1,6 +1,6 @@
 class Comment < ApplicationRecord
   belongs_to :post
   belongs_to :user
-  has_many :notices
+  has_many :notices, dependent: :destroy
   validates :content, presence: true
 end

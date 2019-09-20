@@ -1,5 +1,7 @@
 @import "materialize";
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
 
 .notice-content {
   border: solid thin;
@@ -30,7 +32,7 @@
   padding-bottom: 30px;
 }
 .card-info {
-  font-size: 16px;
+  font-size: 18px;
   padding: 0;
   color: #2E2F30;
   display: flex;
@@ -41,9 +43,59 @@
   height: 80px;
 }
 
+.image-content {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .card-image img{
   width: auto;
   height: 250px;
+  object-fit: cover;
+}
+
+.image-container img {
+  margin: 10px;
+  width: 400px;
+  height: 300px;
+  border: solid;
+  object-fit: contain;
+}
+
+.show-content {
+  margin: 10px;
+  width: 250px;
+  height: 300px;
+  border: solid;
+}
+
+.post-content {
+  margin: 10px;
+  width: 670px;
+  height: 300px;
+  border: solid;
+}
+
+.show-title {
+  margin: 10px;
+  border: solid;
+  width: 670px;
+}
+
+.show-comment {
+  margin: 10px;
+  border: solid;
+  width: 670px;
+}
+
+.comment-form {
+    margin: 10px;
+  border: solid;
+  width: 670px;
+}
+
+.comment-button {
+  text-align: center;
 }
 
 .card-title {

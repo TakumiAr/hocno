@@ -20,8 +20,8 @@
           <div class="card-title"><%= post.title %></div>
           <div class="card-action card-info">
             <span><%= post.category.name %></span>
-            <span><i class="material-icons">chat_bubble_outline</i><strong><%= post.comments.count %></strong></span>
-            <span><i class="material-icons red-text">favorite</i> <%= post.like_users.count %></span>
+            <span><i class="far fa-comment-dots"></i> <%= post.comments.count %></span>
+            <span><i class="fas fa-heart red-text"></i> <%= post.like_users.count %></span>
           </div>
         </div>
       <% end %>

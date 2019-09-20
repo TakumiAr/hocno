@@ -12,6 +12,7 @@
 </head>
 
 <body>
+<!--navbar start-->
 <nav class="blue darken-2">
   <div class="container">
     <div class="nav-wrapper">
@@ -20,7 +21,7 @@
         <% if user_signed_in? %>
           <li>
             <%= link_to like_users_path do %>
-              <i class="material-icons red-text">favorite_border</i>
+              <i class="material-icons red-text">favorite</i>
             <% end %>
           </li>
           <li>
