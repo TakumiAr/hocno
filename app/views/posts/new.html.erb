@@ -16,25 +16,25 @@
     <%= f.file_field :image, class: "image", style: "display:none;", id: "file" %>
     <%= f.hidden_field :image_cache %>
   </div>
-  <div>
-    <%= f.label :title %>
+  <div class="input-field">
     <%= f.text_field :title %>
+    <%= f.label :title, class: "active" %>
   </div>
   <div>
-    <%= f.label :category %>
     <%= f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] }), prompt: "Select Category" %>
+    <%= f.label :category %>
   </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <div class="input-field">
+    <%= f.text_area :content, class: "materialize-textarea" %>
+    <%= f.label :content, class: "active" %>
   </div>
-  <div>
-    <%= f.label :price %>
+  <div class="input-field">
     <%= f.number_field :price %>
+    <%= f.label :price, class: "active" %>
   </div>
-  <div>
-    <%= f.label :budget %>
+  <div class="input-field">
     <%= f.number_field :budget %>
+    <%= f.label :budget, class: "active" %>
   </div>
   <%= f.submit %>
   <%= link_to 'back', :back %>

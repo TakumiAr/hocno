@@ -1,38 +1,48 @@
 <h1>欲しい物の情報を編集</h1>
 <%= form_with(model: @post, local: true) do |f| %>
+  <%= f.label 'サムネイル（スクリーンショットなど）' %>
+
+  <div id="img_field" onClick="$('#file').click()" >
+    <% if @post.image.url.present? %>
+      <%= image_tag @post.image.url %>
+    <% else %>
+      <i class="material-icons">image</i>
+      <i class="material-icons add">add</i>
+    <% end %>
+  </div>
   <div>
     <%= f.label :image %>
-    <%= f.file_field :image %>
+    <%= f.file_field :image, class: "image", style: "display:none;", id: "file" %>
     <%= f.hidden_field :image_cache %>
   </div>
-  <div>
-    <%= f.label :title %>
+  <div class="input-field">
     <%= f.text_field :title %>
+    <%= f.label :title, class: "active" %>
   </div>
   <div>
-    <%= f.label :category %>
     <%= f.select :category_id, options_for_select(Category.all.map{ |c| [c.name, c.id] }), prompt: "Select Category" %>
+    <%= f.label :category %>
   </div>
-  <div>
-    <%= f.label :content %>
-    <%= f.text_area :content %>
+  <div class="input-field">
+    <%= f.text_area :content, class: "materialize-textarea" %>
+    <%= f.label :content, class: "active" %>
   </div>
-  <div>
-    <%= f.label :price %>
+  <div class="input-field">
     <%= f.number_field :price %>
+    <%= f.label :price, class: "active" %>
   </div>
-  <div>
-    <%= f.label :budget %>
+  <div class="input-field">
     <%= f.number_field :budget %>
+    <%= f.label :budget, class: "active" %>
   </div>
   <div>
     <span>status</span><br>
-      <%= f.radio_button :status, :迷い中, checked: "checked" %>
-      <%= f.label :迷い中 %>
-      <%= f.radio_button :status, :購入 %>
-      <%= f.label :購入 %>
-      <%= f.radio_button :status, :断念 %>
-      <%= f.label :断念 %>
+    <%= f.radio_button :status, :迷い中, checked: "checked" %>
+    <%= f.label :迷い中 %>
+    <%= f.radio_button :status, :購入 %>
+    <%= f.label :購入 %>
+    <%= f.radio_button :status, :断念 %>
+    <%= f.label :断念 %>
   </div>
   <%= f.submit %>
   <%= link_to 'back', :back %>

@@ -21,9 +21,10 @@ $(document).ready(function(){
   $('.sidenav').sidenav();
   $('select').formSelect();
   $('.modal').modal();
+  M.updateTextFields();
 });
 
-
+// 画像フォームのサムネイル
 $(function(){
   $fileField = $('#file')
 
@@ -31,7 +32,7 @@ $(function(){
   $($fileField).on('change', $fileField, function(e) {
     file = e.target.files[0]
     reader = new FileReader(),
-    $preview = $("#img_field");
+      $preview = $("#img_field");
 
     reader.onload = (function(file) {
       return function(e) {
@@ -55,7 +56,7 @@ $(function(){
   $($fileField).on('change', $fileField, function(e) {
     file = e.target.files[0]
     reader = new FileReader(),
-    $preview = $("#img_field");
+      $preview = $("#img_field");
 
     reader.onload = (function(file) {
       return function(e) {
