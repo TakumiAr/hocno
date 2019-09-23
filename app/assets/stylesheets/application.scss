@@ -2,23 +2,34 @@
 @import "https://fonts.googleapis.com/icon?family=Material+Icons";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+body{
+  background-color: #F9F9F9;
+}
+
+//button
 .btn {
   border-radius: 25px;
 }
 
-.notice-content {
-  border: solid thin;
-  border-color: #9e9e9e;
-  margin: 0 -1px -1px 0;
-  padding: 10px;
+.form-button {
+  margin: 10px;
+  text-align: center;
 }
 
-.nav-icon {
-  cursor: hand;
+.link-button {
+  margin: 10px;
+  width: 670px;
+  text-align: center;
 }
 
 .search .button {
   margin-top: 10px;
+}
+
+//side_nav
+.nav-icon {
+  cursor: hand;
 }
 
 .status {
@@ -32,6 +43,7 @@
   color: blue;
 }
 
+//index_page
 .card-info {
   font-size: 18px;
   padding: 0;
@@ -48,6 +60,7 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  padding: 5px;
 }
 
 .image-content {
@@ -62,23 +75,24 @@
 }
 
 //post_show_page
-.show-center {
-  margin-left : 150px;
+.show-box {
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .image-container img {
   margin: 10px;
   width: 400px;
   height: 300px;
-  border: solid;
   object-fit: contain;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
 }
 
 .show-content {
   margin: 10px;
   width: 250px;
   height: 300px;
-  border: solid;
   font-size: 20px;
   a {
     vertical-align: top;
@@ -101,20 +115,23 @@
   width: 670px;
   min-height: 300px;
   height: auto;
-  border: solid;
+  p {
+    padding: 0 5px;
+    font-size: 24px;
+  }
 }
 
 .show-title {
   margin: 10px;
-  border: solid;
   width: 670px;
+  font-size: 28px;
   text-align: center;
 }
 
 .show-comment {
   margin: 10px;
-  border: solid;
   width: 670px;
+  padding: 5px;
   a {
     vertical-align: top;
   }
@@ -135,12 +152,20 @@
 
 }
 
-.link-button {
-  margin: 10px;
-  width: 670px;
-  text-align: center;
+
+//post_new_page
+.image-center {
+  border: solid;
 }
 
+.new-box {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 2px;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+//image-thumbnail
 #img_field {
   font-size: 15px;
   margin-top: 10px;
@@ -156,7 +181,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
-  background-color: #fff;
+  background-color: #F9F9F9;
   overflow: hidden;
   box-sizing: border-box;
   transition: 0.3s ease-out;
@@ -165,7 +190,6 @@
 #img_field i {
   font-size: 100px;
   color: #aaa;
-  padding-left: 140px;
   line-height: 250px;
   transition: 0.3s ease-out;
 }
@@ -188,4 +212,35 @@
   transition: 0.3s ease-out;
   display: block;
   color: #fff;
+}
+
+//notice_page
+.notice-content {
+  border: solid thin;
+  border-color: #9e9e9e;
+  margin: 0 -1px -1px 0;
+  padding: 10px;
+}
+
+//profile_page
+.profile-box {
+  font-size: 24px;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  span {
+    margin: 15px;
+  }
+}
+
+.profile-icon img {
+  max-width: 250px;
+  max-height: 250px;
+  border-radius: 50%;
+  width: 100%;
+  margin: 20px;
+}
+
+.status-box {
+  margin: 10px;
 }

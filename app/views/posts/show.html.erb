@@ -1,102 +1,104 @@
-<div class="show-center">
-  <div class="show-title">
-    <%= @post.title %>
-  </div>
-
-  <div class="image-content">
-    <div class="image-container">
-      <% if @post.status == '迷い中' %>
-      <% elsif @post.status == '購入' %>
-        <div class="status purchase">
-          <i class="medium material-icons">mood_good</i>
-        </div>
-      <% else %>
-        <div class="status abandonment">
-          <i class="medium material-icons">mood_bad</i>
-        </div>
-      <% end %>
-      <%= image_tag @post.image.url %>
+<div class="row">
+  <div class="col s10 offset-s2">
+    <div class="show-title show-box">
+      <%= @post.title %>
     </div>
 
-    <div class="show-content">
-      <div>
-        <%= image_tag @post.user.icon.url %>
-        <%= link_to @post.user.name, user_path(@post.user.id) %>
-      </div>
-      <div>
-        <i class="fas fa-tag"></i> <%= @post.category.name %>
-      </div>
-      <div>
-        <i class="far fa-comment-alt"></i> <%= @post.comments.count %>
-      </div>
-      <div>
-        <i class="fas fa-heart red-text"></i> <%= @post.like_users.count %>
-      </div>
-      <div>
-        値段 ¥<%= @post.price %>
-      </div>
-      <div>
-        予算 ¥<%= @post.budget %>
-      </div>
-      <div>
-        <% unless @post.user_id == current_user.id %>
-          <% if @like.present? %>
-            <%= link_to like_path(id: @like.id), method: :delete do %>
-              <i class="fas fa-heart red-text"></i>いいねをはずす
-            <% end %>
-          <% else %>
-            <%= link_to likes_path(post_id: @post.id), method: :post do %>
-              <i class="far fa-heart red-text"></i>いいねする
-            <% end %>
-          <% end %>
+    <div class="image-content">
+      <div class="image-container">
+        <% if @post.status == '迷い中' %>
+        <% elsif @post.status == '購入' %>
+          <div class="status purchase">
+            <i class="medium material-icons">mood_good</i>
+          </div>
+        <% else %>
+          <div class="status abandonment">
+            <i class="medium material-icons">mood_bad</i>
+          </div>
         <% end %>
+          <%= image_tag @post.image.url %>
       </div>
-    </div>
-  </div>
 
-  <div class="post-content">
-    <%= simple_format(@post.content) %>
-  </div>
-
-  <% @comments.each do |comment| %>
-    <% unless comment.id.nil? %>
-      <div class="show-comment">
+      <div class="show-content show-box">
         <div>
           <%= image_tag @post.user.icon.url %>
-          <%= link_to comment.user.name, user_path(comment.user.id) %>
+          <%= link_to @post.user.name, user_path(@post.user.id) %>
         </div>
-        <p><%= simple_format(comment.content) %></p>
-        <span><%= time_ago_in_words(comment.created_at) %> ago</span>
-        <% if comment.user == current_user || @post.user == current_user %>
-          <%= link_to '削除する', post_comment_path(comment.post_id, comment.id), method: :delete %>
-        <% end %>
+        <div>
+          <i class="fas fa-tag"></i> <%= @post.category.name %>
+        </div>
+        <div>
+          <i class="far fa-comment-alt"></i> <%= @post.comments.count %>
+        </div>
+        <div>
+          <i class="fas fa-heart red-text"></i> <%= @post.like_users.count %>
+        </div>
+        <div>
+          <span>値段 ¥</span><%= @post.price %>
+        </div>
+        <div>
+          <span>予算 ¥</span><%= @post.budget %>
+        </div>
+        <div>
+          <% unless @post.user_id == current_user.id %>
+            <% if @like.present? %>
+              <%= link_to like_path(id: @like.id), method: :delete do %>
+                <i class="fas fa-heart red-text"></i>いいねをはずす
+              <% end %>
+            <% else %>
+              <%= link_to likes_path(post_id: @post.id), method: :post do %>
+                <i class="far fa-heart red-text"></i>いいねする
+              <% end %>
+            <% end %>
+          <% end %>
+        </div>
       </div>
+    </div>
+
+    <div class="post-content show-box">
+      <%= simple_format(@post.content) %>
+    </div>
+
+    <% @comments.each do |comment| %>
+      <% unless comment.id.nil? %>
+        <div class="show-comment show-box">
+          <div>
+            <%= image_tag @post.user.icon.url %>
+            <%= link_to comment.user.name, user_path(comment.user.id) %>
+          </div>
+          <p><%= simple_format(comment.content) %></p>
+          <span><%= time_ago_in_words(comment.created_at) %> ago</span>
+          <% if comment.user == current_user || @post.user == current_user %>
+            <%= link_to '削除する', post_comment_path(comment.post_id, comment.id), method: :delete %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  <% end %>
 
-
-  <div class="comment-form">
-    <%= form_with(model: [@post, @comment], local: true ) do |form| %>
-      <div>
-        <%= form.text_area :content, class: "materialize-textarea" %>
-      </div>
-      <div class="comment-button">
-        <%= button_tag :type => "submit", :class =>"waves-effect waves-light btn" do %>
-          <i class="fa fa-comment right">コメントする</i>
+    <div class="comment-form">
+      <%= form_with(model: [@post, @comment], local: true ) do |f| %>
+        <div class="input-field">
+          <%= f.text_area :content, class: "materialize-textarea" %>
+          <%= f.label :content, "コメント内容", class: "active" %>
+        </div>
+        <div class="comment-button">
+          <%= button_tag :type => "submit", :class =>"waves-effect waves-light btn" do %>
+            <i class="fa fa-comment right">コメントする</i>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <% if @post.user == current_user %>
+      <div class="link-button">
+        <%= link_to edit_post_path(@post), class: "btn white green-text waves-effect waves-green" do %>
+          <i class="far fa-edit">edit</i>
+        <% end %>
+        <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn white
+           red-text
+      waves-effect waves-red" do %>
+          <i class="far fa-trash-alt">delete</i>
         <% end %>
       </div>
     <% end %>
   </div>
-  <% if @post.user == current_user %>
-    <div class="link-button">
-      <%= link_to edit_post_path(@post), class: "btn white green-text waves-effect waves-green btn-small" do %>
-        <i class="far fa-edit">edit</i>
-      <% end %>
-      <%= link_to post_path(@post), method: :delete, data: { confirm: "Are you sure?" }, class: "btn white
-           red-text
-      waves-effect waves-red btn-small" do %>
-        <i class="far fa-trash-alt">delete</i>
-      <% end %>
-    </div>
-  <% end %>
 </div>
