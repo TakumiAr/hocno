@@ -1,13 +1,33 @@
-<% @user.posts.where(status: 2).each do |post| %>
-  <%= link_to post do %>
-    <div>
-      <p><%= image_tag post.image.url %></p>
-      <p>タイトル <%= post.title %></p>
-      <p>カテゴリー <%= post.category.name %></p>
-      <p>コメント <%= post.comments.count %></p>
-      <p>いいね <%= post.like_users.count %></p>
-      <p><%= post.status %></p>
+<div class="row">
+  <h4>投稿一覧(断念)</h4>
+  <% @user.posts.where(status: 2).each do |post| %>
+    <div class="col s12 m6 l4">
+      <%= link_to post do %>
+        <div class="card">
+          <% if post.status == '迷い中' %>
+          <% elsif post.status == '購入' %>
+            <div class="status purchase">
+              <i class="medium material-icons">mood_good</i>
+            </div>
+          <% else %>
+            <div class="status abandonment">
+              <i class="medium material-icons">mood_bad</i>
+            </div>
+          <% end %>
+          <div class="card-image">
+            <%= image_tag post.image.url %>
+          </div>
+          <div class="card-title"><%= post.title %></div>
+          <div class="card-action card-info">
+            <span><%= post.category.name %></span>
+            <div class="comment-like">
+              <span><i class="far fa-comment-alt"></i> <%= post.comments.count %></span>
+              <span><i class="fas fa-heart red-text"></i> <%= post.like_users.count %></span>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
   <% end %>
-<% end %>
+</div>
 
