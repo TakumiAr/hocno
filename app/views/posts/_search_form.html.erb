@@ -8,8 +8,11 @@
   <div class="col m3 s12">
     <%= f.select :status_eq, [["迷い中", "迷い中"], ["購入", "購入"], ["断念", "断念"]], include_blank: '状態' %>
   </div>
-  <div class="col m3 s12 button">
+  <div class="col m2 s6 button">
     <%= f.submit "検索する", class: "btn-small btn white green-text" %>
+  </div>
+  <div class="col m1 s6 close">
+    <a class="btn-floating grey"><i class="material-icons" onclick="search(1)">close</i></a>
   </div>
 <% end %>
 

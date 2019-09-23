@@ -24,6 +24,18 @@ $(document).ready(function(){
   M.updateTextFields();
 });
 
+function search(num)
+{
+  if (num == 0)
+  {
+    document.getElementById("search").style.display="block";
+  }
+  else
+  {
+    document.getElementById("search").style.display="none";
+  }
+}
+
 // 画像フォームのサムネイル
 $(function(){
   $fileField = $('#file')
