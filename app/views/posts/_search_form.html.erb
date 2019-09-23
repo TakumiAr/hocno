@@ -1,11 +1,14 @@
 <%= search_form_for(@q, url:search_path) do |f| %>
-  <div class="col m4 s12">
+  <div class="col m3 s12 title-cont">
     <%= f.search_field :title_cont, placeholder: "単語で検索" %>
   </div>
-  <div class="col m4 s12">
+  <div class="col m3 s12">
     <%= f.select :category_id_eq, options_for_select(Category.all.map{ |c| [c.name, c.id] }), include_blank: 'カテゴリー' %>
   </div>
-  <div class="col m4 s12 button">
+  <div class="col m3 s12">
+    <%= f.select :status_eq, [["迷い中", "迷い中"], ["購入", "購入"], ["断念", "断念"]], include_blank: '状態' %>
+  </div>
+  <div class="col m3 s12 button">
     <%= f.submit "検索する", class: "btn-small btn white green-text" %>
   </div>
 <% end %>
